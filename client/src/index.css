@@ -3,3 +3,11 @@
 @plugin "daisyui" {
   themes: light --prefersdark, dark --default;
 }
+
+a.active {
+  font-weight: 500;
+  color: rgb(13, 110, 156);
+}
+a:hover {
+  font-weight: 500;
+}

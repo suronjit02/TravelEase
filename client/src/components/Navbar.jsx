@@ -1,8 +1,9 @@
 import React from "react";
+import { Link, NavLink } from "react-router";
 
 const Navbar = () => {
   return (
-    <div className="navbar bg-base-100 shadow-sm">
+    <div className="navbar bg-base-100 shadow-sm px-20 sticky top-0">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -45,33 +46,36 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">daisyUI</a>
+
+        <h3 className="font-extrabold text-2xl text-sky-900">TravelEase</h3>
       </div>
+
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">
+        <ul className="flex gap-5 text-sm">
           <li>
-            <a>Item 1</a>
+            <NavLink to={"/"}>Home</NavLink>
           </li>
           <li>
-            <details>
-              <summary>Parent</summary>
-              <ul className="p-2 bg-base-100 w-40 z-1">
-                <li>
-                  <a>Submenu 1</a>
-                </li>
-                <li>
-                  <a>Submenu 2</a>
-                </li>
-              </ul>
-            </details>
+            <NavLink to={"/all-vehicles"}>All Vehicles</NavLink>
           </li>
           <li>
-            <a>Item 3</a>
+            <NavLink to={"/add-vehicle"}>Add Vehicle</NavLink>
+          </li>
+          <li>
+            <NavLink to={"/my-vehicles"}>My Vehicles</NavLink>
+          </li>
+          <li>
+            <NavLink to={"/my-bookings"}>My Bookings</NavLink>
           </li>
         </ul>
       </div>
-      <div className="navbar-end">
-        <a className="btn">Button</a>
+      <div className="navbar-end gap-5 font-semibold">
+        <Link to={"/login"} className="">
+          Login
+        </Link>
+        <Link to={"/register"} className="">
+          Register
+        </Link>
       </div>
     </div>
   );
