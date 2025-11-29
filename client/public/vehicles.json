@@ -1,0 +1,80 @@
+[
+  {
+    "vehicleName": "Toyota Corolla",
+    "owner": "John Doe",
+    "category": "Sedan",
+    "pricePerDay": 70,
+    "location": "Dhaka, Bangladesh",
+    "availability": "Available",
+    "description": "Comfortable 5-seater with A/C and GPS.",
+    "coverImage": "https://images.unsplash.com/photo-1706863411207-6db2c0393641?auto=format&fit=crop&w=800&q=80",
+    "userEmail": "johndoe@example.com",
+    "createdAt": "2025-10-29T10:30:00+00:00",
+    "categories": "Sedan"
+  },
+  {
+    "vehicleName": "Honda Civic",
+    "owner": "Alice Smith",
+    "category": "Sedan",
+    "pricePerDay": 65,
+    "location": "Chittagong, Bangladesh",
+    "availability": "Booked",
+    "description": "Stylish 5-seater with excellent fuel efficiency.",
+    "coverImage": "https://images.unsplash.com/photo-1762305413604-7fa55e8f7ae2?auto=format&fit=crop&w=800&q=80",
+    "userEmail": "alice@example.com",
+    "createdAt": "2025-10-28T12:15:00+00:00",
+    "categories": "Sedan"
+  },
+  {
+    "vehicleName": "Nissan X-Trail",
+    "owner": "Bob Johnson",
+    "category": "SUV",
+    "pricePerDay": 90,
+    "location": "Sylhet, Bangladesh",
+    "availability": "Available",
+    "description": "Spacious SUV perfect for family trips.",
+    "coverImage": "https://images.unsplash.com/photo-1658662160331-62f7e52e63de?auto=format&fit=crop&w=800&q=80",
+    "userEmail": "bob@example.com",
+    "createdAt": "2025-10-27T09:00:00+00:00",
+    "categories": "SUV"
+  },
+  {
+    "vehicleName": "Toyota Hiace",
+    "owner": "Charlie Brown",
+    "category": "Van",
+    "pricePerDay": 120,
+    "location": "Rajshahi, Bangladesh",
+    "availability": "Available",
+    "description": "Large van, ideal for group travel, A/C included.",
+    "coverImage": "https://images.unsplash.com/photo-1714008384412-97137b26ab42?auto=format&fit=crop&w=800&q=80",
+    "userEmail": "charlie@example.com",
+    "createdAt": "2025-10-26T14:45:00+00:00",
+    "categories": "Van"
+  },
+  {
+    "vehicleName": "Tesla Model 3",
+    "owner": "Diana Prince",
+    "category": "Electric",
+    "pricePerDay": 150,
+    "location": "Dhaka, Bangladesh",
+    "availability": "Booked",
+    "description": "Modern electric sedan with autopilot and premium features.",
+    "coverImage": "https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=800&q=80",
+    "userEmail": "diana@example.com",
+    "createdAt": "2025-10-25T08:20:00+00:00",
+    "categories": "Electric"
+  },
+  {
+    "vehicleName": "Ford Ranger",
+    "owner": "Ethan Hunt",
+    "category": "Pickup",
+    "pricePerDay": 80,
+    "location": "Khulna, Bangladesh",
+    "availability": "Available",
+    "description": "Reliable pickup truck with spacious cargo area.",
+    "coverImage": "https://images.unsplash.com/photo-1692261406823-f8dc992ab699?auto=format&fit=crop&w=800&q=80",
+    "userEmail": "ethan@example.com",
+    "createdAt": "2025-10-24T16:00:00+00:00",
+    "categories": "Pickup"
+  }
+]
