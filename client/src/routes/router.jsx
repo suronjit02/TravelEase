@@ -9,6 +9,7 @@ import AddVehicle from "../pages/private/AddVehicle";
 import UpdateVehicle from "../pages/private/UpdateVehicle";
 import Register from "../pages/Register";
 import Login from "../pages/Login";
+import ErrorPage from "../pages/ErrorPage";
 
 const router = createBrowserRouter([
   {
@@ -51,6 +52,10 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>,
+      },
+      {
+        path: "*",
+        element: <ErrorPage></ErrorPage>,
       },
     ],
   },
