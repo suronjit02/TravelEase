@@ -1,7 +1,20 @@
-import React from "react";
-import { Link, NavLink } from "react-router";
+import React, { useContext } from "react";
+import { Link, NavLink, useNavigate } from "react-router";
+import { AuthContext } from "../provider/AuthProvider";
+import { HiOutlineUserCircle } from "react-icons/hi2";
 
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {
+        navigate("/", { replace: true });
+      })
+      .catch(() => {});
+  };
+
   return (
     <div className="navbar bg-base-100 shadow-sm px-20 sticky top-0 z-99">
       <div className="navbar-start">
@@ -70,19 +83,61 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end gap-5 font-semibold">
-        <Link to={"/login"} className="">
-          Login
-        </Link>
-        <Link to={"/register"} className="">
-          Register
-        </Link>
+        {user ? (
+          <>
+            <div
+              className="tooltip tooltip-bottom"
+              data-tip={user?.displayName}
+            >
+              <div>
+                <div className="dropdown dropdown-end">
+                  <div tabIndex={0} role="button" className="m-1">
+                    {user?.photoURL ? (
+                      <img
+                        src={user.photoURL}
+                        alt="profile"
+                        className="w-10 h-10 rounded-full object-cover cursor-pointer"
+                      />
+                    ) : (
+                      <HiOutlineUserCircle className="text-3xl text-gray-700 cursor-pointer" />
+                    )}
+                  </div>
+                  <ul
+                    tabIndex="-1"
+                    className="dropdown-content  bg-base-100 rounded-md z-1 min-w-55 p-2 shadow-sm"
+                  >
+                    <div className="text-sm mt-4">
+                      <li>Name: {user.displayName}</li>
+                      <li>Email: {user.email}</li>
+                    </div>
+                    <hr className="my-3" />
+                    <li>
+                      <Link
+                        to={"/"}
+                        onClick={handleLogOut}
+                        className="sm:flex items-center justify-center font-bold "
+                      >
+                        Logout
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </>
+        ) : (
+          <>
+            <Link to={"/login"} className="">
+              Login
+            </Link>
+            <Link to={"/register"} className="">
+              Register
+            </Link>
+          </>
+        )}
 
         <label className="toggle text-base-content">
-          <input
-            type="checkbox"
-            value="dark"
-            className="theme-controller"
-          />
+          <input type="checkbox" value="dark" className="theme-controller" />
 
           <svg
             aria-label="sun"

@@ -10,6 +10,7 @@ import UpdateVehicle from "../pages/private/UpdateVehicle";
 import Register from "../pages/Register";
 import Login from "../pages/Login";
 import ErrorPage from "../pages/ErrorPage";
+import PrivateRoute from "../provider/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -27,11 +28,19 @@ const router = createBrowserRouter([
       },
       {
         path: "/my-vehicles",
-        element: <MyVehicle></MyVehicle>,
+        element: (
+          <PrivateRoute>
+            <MyVehicle></MyVehicle>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/my-bookings",
-        element: <MyBooking></MyBooking>,
+        element: (
+          <PrivateRoute>
+            <MyBooking></MyBooking>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/view-details",
@@ -39,11 +48,19 @@ const router = createBrowserRouter([
       },
       {
         path: "/add-vehicle",
-        element: <AddVehicle></AddVehicle>,
+        element: (
+          <PrivateRoute>
+            <AddVehicle></AddVehicle>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/update-vehicle",
-        element: <UpdateVehicle></UpdateVehicle>,
+        element: (
+          <PrivateRoute>
+            <UpdateVehicle></UpdateVehicle>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/login",
