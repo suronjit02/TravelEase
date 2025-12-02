@@ -84,7 +84,7 @@ const Login = () => {
 
           <p
             onClick={() =>
-              navigate("/login/forgot-password", {
+              navigate("/reset-password", {
                 state: { email: emailInput },
               })
             }
@@ -94,9 +94,7 @@ const Login = () => {
           </p>
         </div>
 
-        <button className="btn mt-6 w-full transition py-2">
-          Login
-        </button>
+        <button className="btn mt-6 w-full transition py-2">Login</button>
         <p className="my-1 text-center text-sm">or</p>
 
         <button
@@ -136,7 +134,10 @@ const Login = () => {
 
         <p className="mt-6 sm:mt-10 text-center text-sm">
           Don't have an account?{" "}
-          <Link to={"/register"} className="hover:underline text-sky-900 font-bold">
+          <Link
+            to={"/register"}
+            className="hover:underline text-sky-900 font-bold"
+          >
             Register
           </Link>
         </p>
