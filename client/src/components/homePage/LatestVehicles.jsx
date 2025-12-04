@@ -7,7 +7,7 @@ const LatestVehicles = () => {
 
   useEffect(() => {
     axios
-      .get("/vehicles.json")
+      .get("http://localhost:3000/vehicles")
       .then((res) => setVehicles(res.data))
       .catch((err) => console.log(err));
   }, []);
