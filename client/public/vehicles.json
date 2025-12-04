@@ -54,7 +54,7 @@
   {
     "vehicleName": "Tesla Model 3",
     "owner": "Diana Prince",
-    "category": "Electric",
+    "category": "Electric", 
     "pricePerDay": 150,
     "location": "Dhaka, Bangladesh",
     "availability": "Booked",

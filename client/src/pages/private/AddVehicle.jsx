@@ -1,47 +1,43 @@
-import { useState } from "react";
+import { useContext } from "react";
+import { AuthContext } from "../../provider/AuthProvider";
+import axios from "axios";
 
 const AddVehicle = () => {
-  const [formData, setFormData] = useState({
-    vehicleName: "",
-    owner: "",
-    category: "",
-    pricePerDay: "",
-    location: "",
-    availability: "Available",
-    description: "",
-    coverImage: "",
-    userEmail: "user@example.com",
-  });
-
-  const [success, setSuccess] = useState("");
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+  const { user } = useContext(AuthContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    
-    if (!formData.vehicleName || !formData.owner || !formData.category) {
-      alert("Please fill all required fields!");
-      return;
-    }
+    const form = e.target;
 
-    
-    setSuccess(`Vehicle "${formData.vehicleName}" added successfully!`);
+    const vehicleName = form.vehicleName.value;
+    const owner = form.owner.value;
+    const category = form.category.value;
+    const pricePerDay = parseInt(form.pricePerDay.value);
+    const location = form.location.value;
+    const availability = form.availability.value;
+    const description = form.description.value;
+    const coverImage = form.coverImage.value;
+    const userEmail = form.userEmail.value;
+    const createdAt = new Date().toISOString();
 
-   
-    setFormData({
-      vehicleName: "",
-      owner: "",
-      category: "",
-      pricePerDay: "",
-      location: "",
-      availability: "Available",
-      description: "",
-      coverImage: "",
-      userEmail: "user@example.com",
+    const formData = {
+      vehicleName,
+      owner,
+      category,
+      pricePerDay,
+      location,
+      availability,
+      description,
+      coverImage,
+      userEmail,
+      createdAt,
+    };
+
+    console.log(formData);
+
+    axios.post("http://localhost:3000/vehicles", formData).then((res) => {
+      console.log(res);
     });
   };
 
@@ -49,19 +45,11 @@ const AddVehicle = () => {
     <div className="px-4 py-8 max-w-3xl mx-auto">
       <h2 className="text-3xl text-center font-bold mb-6">Add Vehicle</h2>
 
-      {success && (
-        <div className="mb-4 p-3 bg-green-100 text-green-700 rounded">
-          {success}
-        </div>
-      )}
-
       <form onSubmit={handleSubmit} className="flex flex-col gap-4 w-full">
         <input
           type="text"
           name="vehicleName"
           placeholder="Vehicle Name"
-          value={formData.vehicleName}
-          onChange={handleChange}
           className="input input-bordered w-full"
         />
 
@@ -69,17 +57,10 @@ const AddVehicle = () => {
           type="text"
           name="owner"
           placeholder="Owner Name"
-          value={formData.owner}
-          onChange={handleChange}
           className="input input-bordered w-full"
         />
 
-        <select
-          name="category"
-          value={formData.category}
-          onChange={handleChange}
-          className="input input-bordered w-full"
-        >
+        <select name="category" className="input input-bordered w-full">
           <option value="">Select Category</option>
           <option value="SUV">SUV</option>
           <option value="Electric">Electric</option>
@@ -91,8 +72,6 @@ const AddVehicle = () => {
           type="number"
           name="pricePerDay"
           placeholder="Price Per Day"
-          value={formData.pricePerDay}
-          onChange={handleChange}
           className="input input-bordered w-full"
         />
 
@@ -100,17 +79,10 @@ const AddVehicle = () => {
           type="text"
           name="location"
           placeholder="Location"
-          value={formData.location}
-          onChange={handleChange}
           className="input input-bordered w-full"
         />
 
-        <select
-          name="availability"
-          value={formData.availability}
-          onChange={handleChange}
-          className="input input-bordered w-full"
-        >
+        <select name="availability" className="input input-bordered w-full">
           <option value="Available">Available</option>
           <option value="Booked">Booked</option>
         </select>
@@ -118,8 +90,6 @@ const AddVehicle = () => {
         <textarea
           name="description"
           placeholder="Description"
-          value={formData.description}
-          onChange={handleChange}
           className="input input-bordered h-24 w-full"
         />
 
@@ -127,8 +97,14 @@ const AddVehicle = () => {
           type="text"
           name="coverImage"
           placeholder="Cover Image URL"
-          value={formData.coverImage}
-          onChange={handleChange}
+          className="input input-bordered w-full"
+        />
+        <input
+          type="email"
+          name="userEmail"
+          placeholder="Email"
+          value={user.email}
+          readOnly
           className="input input-bordered w-full"
         />
 
