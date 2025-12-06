@@ -1,11 +1,14 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { useSearchParams } from "react-router-dom";
 import FilterBar from "../components/FilterBar";
 import VehicleCard from "../components/homePage/VehicleCard";
 
 const AllVehicles = () => {
   const [vehicles, setVehicles] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const fetchVehicles = async (filters = {}) => {
     setLoading(true);
@@ -16,7 +19,9 @@ const AllVehicles = () => {
       if (filters.priceSort) query.push(`sortPrice=${filters.priceSort}`);
       const queryString = query.length ? "?" + query.join("&") : "";
 
-      const res = await axios.get(`vehicles.json${queryString}`);
+      const res = await axios.get(
+        `http://localhost:3000/vehicles${queryString}`
+      );
       setVehicles(res.data);
     } catch (err) {
       console.log(err);
@@ -25,10 +30,21 @@ const AllVehicles = () => {
   };
 
   useEffect(() => {
-    fetchVehicles();
+    const category = searchParams.get("category") || "";
+    const location = searchParams.get("location") || "";
+    const priceSort = searchParams.get("sortPrice") || "";
+
+    fetchVehicles({ category, location, priceSort });
   }, []);
 
   const handleFilter = (filters) => {
+    let params = {};
+
+    if (filters.category) params.category = filters.category;
+    if (filters.location) params.location = filters.location;
+    if (filters.priceSort) params.sortPrice = filters.priceSort;
+
+    setSearchParams(params);
     fetchVehicles(filters);
   };
 

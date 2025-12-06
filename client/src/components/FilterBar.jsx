@@ -41,7 +41,10 @@ const FilterBar = ({ onFilter }) => {
         <option value="desc">High to Low</option>
       </select>
 
-      <button onClick={handleFilter} className="btn btn-wide mt-2 md:mt-0 bg-blue-500 hover:bg-blue-600 text-white">
+      <button
+        onClick={handleFilter}
+        className="btn btn-wide mt-2 md:mt-0 bg-blue-500 hover:bg-blue-600 text-white"
+      >
         Apply
       </button>
     </div>
