@@ -1,4 +1,4 @@
-const { MongoClient, ServerApiVersion } = require("mongodb");
+const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
 const express = require("express");
 const cors = require("cors");
 require("dotenv").config();
@@ -34,7 +34,31 @@ async function run() {
 
     // get api
     app.get("/vehicles", async (req, res) => {
-      const result = await vehicles.find().toArray();
+      const { category, location, sortPrice } = req.query;
+
+      let filter = {};
+      if (category) {
+        filter.category = category;
+      }
+      if (location) {
+        filter.location = { $regex: location, $options: "i" };
+      }
+
+      let options = {};
+      if (sortPrice === "asc") {
+        options.sort = { pricePerDay: 1 };
+      } else if (sortPrice === "desc") {
+        options.sort = { pricePerDay: -1 };
+      }
+
+      const result = await vehicles.find(filter, options).toArray();
+      res.send(result);
+    });
+
+    app.get("/vehicles/:id", async (req, res) => {
+      const id = req.params;
+      const query = { _id: new ObjectId(id) };
+      const result = await vehicles.findOne(query);
       res.send(result);
     });
 
