@@ -35,7 +35,7 @@ const AllVehicles = () => {
     const priceSort = searchParams.get("sortPrice") || "";
 
     fetchVehicles({ category, location, priceSort });
-  }, []);
+  }, [searchParams]);
 
   const handleFilter = (filters) => {
     let params = {};
