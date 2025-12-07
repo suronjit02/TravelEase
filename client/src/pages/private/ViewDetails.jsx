@@ -1,25 +1,45 @@
-import { useEffect, useState } from "react";
+import axios from "axios";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router";
+import { AuthContext } from "../../provider/AuthProvider";
+import toast from "react-hot-toast";
 
 const VehicleDetails = () => {
-  const [vehicle, setVehicle] = useState([]);
   const { id } = useParams();
-  const [loading, setLoading] = useState(true);
+  const { user } = useContext(AuthContext);
+  const [vehicle, setVehicle] = useState(null);
+  const [isBooked, setIsBooked] = useState(false);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/vehicles/${id}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setVehicle(data);
-        setLoading(false);
-      });
+    axios.get(`http://localhost:3000/vehicles/${id}`).then((res) => {
+      setVehicle(res.data);
+    });
   }, [id]);
 
-  if (loading) {
-    return (
-      <div className="text-center text-xl py-10 font-semibold">Loading...</div>
-    );
-  }
+  const handleBooking = async () => {
+    const bookingData = {
+      vehicleId: vehicle._id,
+      vehicleName: vehicle.vehicleName,
+      coverImage: vehicle.coverImage,
+      pricePerDay: vehicle.pricePerDay,
+      location: vehicle.location,
+      userEmail: user.email,
+      bookedAt: new Date().toISOString(),
+    };
+
+    try {
+      await axios.post("http://localhost:3000/bookings", bookingData);
+      toast.success("Booking Successful ✅");
+      setIsBooked(true);
+    } catch (err) {
+      if (err.response?.status === 400) {
+        toast.error("Already booked!");
+        setIsBooked(true);
+      }
+    }
+  };
+
+  if (!vehicle) return null;
 
   return (
     <div className="max-w-3xl mx-auto p-6">
@@ -50,8 +70,14 @@ const VehicleDetails = () => {
         </p>
       </div>
 
-      <button className="btn bg-blue-600 text-white px-5 py-2 rounded mt-5">
-        Book Now
+      <button
+        onClick={handleBooking}
+        disabled={isBooked}
+        className={`btn px-5 py-2 rounded mt-5 text-white
+    ${isBooked ? "bg-gray-400 cursor-not-allowed" : "bg-blue-600"}
+  `}
+      >
+        {isBooked ? "Booked" : "Book Now"}
       </button>
     </div>
   );

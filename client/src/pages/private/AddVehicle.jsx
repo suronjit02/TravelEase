@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 const AddVehicle = () => {
   const { user } = useContext(AuthContext);
@@ -37,7 +38,9 @@ const AddVehicle = () => {
     console.log(formData);
 
     axios.post("http://localhost:3000/vehicles", formData).then((res) => {
-      console.log(res);
+      // console.log(res);
+      toast.success("Vehicle Added Successfully!");
+      form.reset();
     });
   };
 
@@ -47,6 +50,7 @@ const AddVehicle = () => {
 
       <form onSubmit={handleSubmit} className="flex flex-col gap-4 w-full">
         <input
+          required
           type="text"
           name="vehicleName"
           placeholder="Vehicle Name"
@@ -54,13 +58,18 @@ const AddVehicle = () => {
         />
 
         <input
+          required
           type="text"
           name="owner"
           placeholder="Owner Name"
           className="input input-bordered w-full"
         />
 
-        <select name="category" className="input input-bordered w-full">
+        <select
+          required
+          name="category"
+          className="input input-bordered w-full"
+        >
           <option value="">Select Category</option>
           <option value="SUV">SUV</option>
           <option value="Electric">Electric</option>
@@ -69,6 +78,7 @@ const AddVehicle = () => {
         </select>
 
         <input
+          required
           type="number"
           name="pricePerDay"
           placeholder="Price Per Day"
@@ -76,24 +86,32 @@ const AddVehicle = () => {
         />
 
         <input
+          required
           type="text"
           name="location"
           placeholder="Location"
           className="input input-bordered w-full"
         />
 
-        <select name="availability" className="input input-bordered w-full">
+        <select
+          required
+          name="availability"
+          className="input input-bordered w-full"
+        >
           <option value="Available">Available</option>
           <option value="Booked">Booked</option>
         </select>
 
         <textarea
+          required
           name="description"
           placeholder="Description"
-          className="input input-bordered h-24 w-full"
+          className="input input-bordered h-24 w-full "
+          style={{ whiteSpace: "pre-wrap", wordWrap: "break-word" }}
         />
 
         <input
+          required
           type="text"
           name="coverImage"
           placeholder="Cover Image URL"
