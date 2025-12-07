@@ -14,10 +14,12 @@ const LatestVehicles = () => {
 
   return (
     <div className="my-20 px-20">
-      <h2 className="text-3xl text-center text-sky-900 font-semibold mb-6">Latest Vehicles</h2>
+      <h2 className="text-3xl text-center text-sky-900 font-semibold mb-6">
+        Latest Vehicles
+      </h2>
 
       <div className="grid md:grid-cols-3 gap-6">
-        {vehicles.map((v) => (
+        {vehicles.slice(0, 6).map((v) => (
           <VehicleCard key={v._id} vehicle={v} />
         ))}
       </div>

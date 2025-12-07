@@ -49,7 +49,7 @@ const AllVehicles = () => {
   };
 
   return (
-    <div className="px-20 py-8">
+    <div className="max-w-6xl mx-auto py-8">
       <h2 className="text-3xl text-center font-semibold mb-8">All Vehicles</h2>
 
       <FilterBar onFilter={handleFilter} />
