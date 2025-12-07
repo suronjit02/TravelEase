@@ -24,6 +24,7 @@ async function run() {
 
     const database = client.db("travelEaseData");
     const vehicles = database.collection("vehicles");
+    const bookings = database.collection("bookings");
 
     app.post("/vehicles", async (req, res) => {
       const data = req.body;
@@ -91,6 +92,29 @@ async function run() {
       const id = req.params;
       const query = { _id: new ObjectId(id) };
       const result = await vehicles.deleteOne(query);
+      res.send(result);
+    });
+
+    app.post("/bookings", async (req, res) => {
+      const data = req.body;
+
+      const alreadyBooked = await bookings.findOne({
+        userEmail: data.userEmail,
+        vehicleId: data.vehicleId,
+      });
+
+      if (alreadyBooked) {
+        return res.status(400).send({ message: "Already booked" });
+      }
+
+      const result = await bookings.insertOne(data);
+      res.send(result);
+    });
+
+
+    app.get("/my-bookings", async (req, res) => {
+      const email = req.query.email;
+      const result = await bookings.find({ userEmail: email }).toArray();
       res.send(result);
     });
 
