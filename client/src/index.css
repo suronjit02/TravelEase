@@ -11,3 +11,12 @@ a.active {
 a:hover {
   font-weight: 500;
 }
+
+body {
+  background: linear-gradient(
+    120deg,
+    rgba(62, 65, 243, 0.15),
+    rgba(18, 170, 235, 0.15),
+    rgba(213, 47, 130, 0.15)
+  );
+}
