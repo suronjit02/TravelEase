@@ -27,10 +27,10 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar bg-base-100 shadow-sm px-20 sticky top-0 z-99">
+    <div className="navbar bg-base-100 shadow-sm px-2 sm:px-20 sticky top-0 z-99">
       <div className="navbar-start">
         <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+          <div tabIndex={0} role="button" className="btn btn-ghost sm:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -52,26 +52,22 @@ const Navbar = () => {
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
             <li>
-              <a>Item 1</a>
+              <Link to={"/login"} className="font-semibold">
+                Login
+              </Link>
             </li>
+
             <li>
-              <a>Parent</a>
-              <ul className="p-2">
-                <li>
-                  <a>Submenu 1</a>
-                </li>
-                <li>
-                  <a>Submenu 2</a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <a>Item 3</a>
+              <Link to={"/register"} className="font-semibold">
+                Register
+              </Link>
             </li>
           </ul>
         </div>
 
-        <h3 className="font-extrabold text-2xl text-sky-900">TravelEase</h3>
+        <h3 className="font-extrabold text-2xl text-sky-900 cursor-pointer hidden sm:inline-block">
+          TravelEase
+        </h3>
       </div>
 
       <div className="navbar-center hidden lg:flex">
@@ -137,14 +133,18 @@ const Navbar = () => {
             </div>
           </>
         ) : (
-          <>
-            <Link to={"/login"} className="">
+          <div className="flex items-center gap-4">
+            <Link to={"/login"} className="hidden sm:inline-block">
               Login
             </Link>
-            <Link to={"/register"} className="">
+            <Link to={"/register"} className="hidden sm:inline-block">
               Register
             </Link>
-          </>
+
+            <h3 className="font-extrabold text-2xl text-sky-900 cursor-pointer inline-block sm:hidden">
+              TravelEase
+            </h3>
+          </div>
         )}
 
         <label className="toggle text-base-content">
