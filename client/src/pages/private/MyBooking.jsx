@@ -26,7 +26,7 @@ const MyBooking = () => {
       {bookings.length > 0 && (
         <div className="flex flex-col gap-5">
           {bookings.map((item) => {
-            const bookedDate = new Date(item.bookedAt); // শুধু Date object
+            const bookedDate = new Date(item.bookedAt);
             return (
               <div
                 key={item._id}
