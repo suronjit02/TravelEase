@@ -39,11 +39,11 @@ const Login = () => {
   return (
     <div
       data-aos="fade-down-left"
-      className="w-full min-h-screen flex items-center justify-center bg-gray-50 px-4"
+      className="w-full min-h-screen flex items-center justify-center px-4"
     >
       <form
         onSubmit={handleLogIn}
-        className="w-full sm:max-w-md bg-white rounded-md border shadow-md p-6 sm:p-8"
+        className="w-full sm:max-w-md bg-white/30 backdrop-blur-md border-white/30 rounded-md border shadow-md p-6 sm:p-8"
       >
         <h2 className="text-2xl sm:text-3xl font-bold text-center text-sky-900 mb-6">
           Please Login
@@ -94,7 +94,9 @@ const Login = () => {
           </p>
         </div>
 
-        <button className="btn mt-6 w-full transition py-2">Login</button>
+        <button className="btn border-none mt-6 w-full bg-sky-600 hover:bg-sky-700 text-white transition">
+          Login
+        </button>
         <p className="my-1 text-center text-sm">or</p>
 
         <button

@@ -48,11 +48,11 @@ const Register = () => {
   return (
     <div
       data-aos="fade-down-left"
-      className="w-full min-h-screen py-10 flex items-center justify-center bg-gray-50 px-4"
+      className="w-full min-h-screen py-10 flex items-center justify-center px-4"
     >
       <form
         onSubmit={handleSignUp}
-        className="w-full sm:max-w-md bg-white rounded-md border shadow-md p-6 sm:p-8"
+        className="w-full sm:max-w-md bg-white/30 backdrop-blur-md border border-white/30 rounded-md shadow-md p-6 sm:p-8"
       >
         <h2 className="text-2xl sm:text-3xl font-bold text-center text-sky-900 mb-6">
           Please Sign Up
@@ -114,7 +114,7 @@ const Register = () => {
 
         {error && <p className="text-red-600 text-sm mt-2">{error}</p>}
 
-        <button className="btn mt-6 w-full transition py-2">
+        <button className="btn border-none mt-6 w-full bg-sky-600 hover:bg-sky-700 text-white transition">
           Sign Up
         </button>
 
@@ -157,7 +157,10 @@ const Register = () => {
 
         <p className="mt-6 sm:mt-10 text-center text-sm">
           Already have an account?{" "}
-          <Link to={"/login"} className="hover:underline text-sky-900 font-bold">
+          <Link
+            to={"/login"}
+            className="hover:underline text-sky-900 font-bold"
+          >
             Login
           </Link>
         </p>
