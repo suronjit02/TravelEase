@@ -35,7 +35,7 @@ async function run() {
 
     // get api
     app.get("/vehicles", async (req, res) => {
-      const { category, location, sortPrice } = req.query;
+      const { category, location, sortPrice, latest } = req.query;
 
       let filter = {};
       if (category) {
@@ -46,7 +46,11 @@ async function run() {
       }
 
       let options = {};
-      if (sortPrice === "asc") {
+
+      // short
+      if (latest === "true") {
+        options.sort = { createdAt: -1 };
+      } else if (sortPrice === "asc") {
         options.sort = { pricePerDay: 1 };
       } else if (sortPrice === "desc") {
         options.sort = { pricePerDay: -1 };
@@ -110,7 +114,6 @@ async function run() {
       const result = await bookings.insertOne(data);
       res.send(result);
     });
-
 
     app.get("/my-bookings", async (req, res) => {
       const email = req.query.email;
