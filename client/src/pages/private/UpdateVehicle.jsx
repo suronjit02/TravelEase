@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import { useNavigate, useParams } from "react-router";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 const UpdateVehicle = () => {
   const { user } = useContext(AuthContext);
@@ -54,7 +55,7 @@ const UpdateVehicle = () => {
       .put(`http://localhost:3000/update/${id}`, formData)
       .then((res) => {
         console.log(res.data);
-
+        toast.success("Update your vehicle successfully!");
         navigate("/my-vehicles");
       })
       .catch((err) => {
@@ -65,85 +66,96 @@ const UpdateVehicle = () => {
   };
 
   return (
-    <div className="px-4 py-8 max-w-3xl mx-auto">
-      <form onSubmit={handleUpdate} className="flex flex-col gap-4 w-full">
-        <input
-          defaultValue={vehicle?.vehicleName}
-          type="text"
-          name="vehicleName"
-          placeholder="Vehicle Name"
-          className="input input-bordered w-full"
-        />
+    <div className="">
+      <div className="max-w-3xl mx-auto bg-white/30 backdrop-blur-md border border-white/30 p-15 rounded-lg my-15">
+        <h3 className="text-center mb-8 text-2xl font-semibold">Update Your Vehicle Data</h3>
+        <form onSubmit={handleUpdate} className="flex flex-col gap-4 w-full">
+          <input
+            required
+            defaultValue={vehicle?.vehicleName}
+            type="text"
+            name="vehicleName"
+            placeholder="Vehicle Name"
+            className="input input-bordered w-full"
+          />
 
-        <input
-          defaultValue={vehicle?.owner}
-          type="text"
-          name="owner"
-          placeholder="Owner Name"
-          className="input input-bordered w-full"
-        />
+          <input
+            required
+            defaultValue={vehicle?.owner}
+            type="text"
+            name="owner"
+            placeholder="Owner Name"
+            className="input input-bordered w-full"
+          />
 
-        <select
-          name="category"
-          className="input input-bordered w-full"
-          value={category}
-          onChange={(e) => setCategory(e.target.value)}
-        >
-          <option value="">Select Category</option>
-          <option value="SUV">SUV</option>
-          <option value="Electric">Electric</option>
-          <option value="Sedan">Sedan</option>
-          <option value="Van">Van</option>
-        </select>
+          <select
+            required
+            name="category"
+            className="input input-bordered w-full"
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
+          >
+            <option value="">Select Category</option>
+            <option value="SUV">SUV</option>
+            <option value="Electric">Electric</option>
+            <option value="Sedan">Sedan</option>
+            <option value="Van">Van</option>
+          </select>
 
-        <input
-          defaultValue={vehicle?.pricePerDay}
-          type="number"
-          name="pricePerDay"
-          placeholder="Price Per Day"
-          className="input input-bordered w-full"
-        />
+          <input
+            required
+            defaultValue={vehicle?.pricePerDay}
+            type="number"
+            name="pricePerDay"
+            placeholder="Price Per Day"
+            className="input input-bordered w-full"
+          />
 
-        <input
-          defaultValue={vehicle?.location}
-          type="text"
-          name="location"
-          placeholder="Location"
-          className="input input-bordered w-full"
-        />
+          <input
+            required
+            defaultValue={vehicle?.location}
+            type="text"
+            name="location"
+            placeholder="Location"
+            className="input input-bordered w-full"
+          />
 
-        <select
-          name="availability"
-          className="input input-bordered w-full"
-          value={availability}
-          onChange={(e) => setAvailability(e.target.value)}
-        >
-          <option value="Available">Available</option>
-          <option value="Booked">Booked</option>
-        </select>
+          <select
+            required
+            name="availability"
+            className="input input-bordered w-full"
+            value={availability}
+            onChange={(e) => setAvailability(e.target.value)}
+          >
+            <option value="Available">Available</option>
+            <option value="Booked">Booked</option>
+          </select>
 
-        <textarea
-          defaultValue={vehicle?.description}
-          name="description"
-          placeholder="Description"
-          className="input input-bordered h-24 w-full"
-        />
+          <textarea
+            required
+            defaultValue={vehicle?.description}
+            name="description"
+            placeholder="Description"
+            className="input input-bordered h-24 w-full"
+          />
 
-        <input
-          defaultValue={vehicle?.coverImage}
-          type="text"
-          name="coverImage"
-          placeholder="Cover Image URL"
-          className="input input-bordered w-full"
-        />
+          <input
+            required
+            defaultValue={vehicle?.coverImage}
+            type="text"
+            name="coverImage"
+            placeholder="Cover Image URL"
+            className="input input-bordered w-full"
+          />
 
-        <button
-          type="submit"
-          className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
-        >
-          Update
-        </button>
-      </form>
+          <button
+            type="submit"
+            className="px-6 py-3 bg-sky-600 text-white rounded-lg hover:bg-sky-700"
+          >
+            Update
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

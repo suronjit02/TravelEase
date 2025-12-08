@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import { Link } from "react-router";
+import toast from "react-hot-toast";
 
 const MyVehicle = () => {
   const [myVehicle, setMyVehicle] = useState([]);
@@ -24,6 +25,7 @@ const MyVehicle = () => {
       .then((res) => {
         console.log(res.data);
         const filterData = myVehicle.filter((vehicle) => vehicle._id != id);
+        toast.success("Vehicle removed from your list !");
         // console.log(filterData);
         setMyVehicle(filterData);
       })
@@ -74,10 +76,7 @@ const MyVehicle = () => {
                 </td>
 
                 <td>
-                  <Link
-                    to={`/vehicle/${vehicle._id}`}
-                    className="btn  btn-xs"
-                  >
+                  <Link to={`/vehicle/${vehicle._id}`} className="btn  btn-xs">
                     View Details
                   </Link>
                 </td>
