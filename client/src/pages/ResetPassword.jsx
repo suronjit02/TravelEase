@@ -26,10 +26,10 @@ const ResetPassword = () => {
   };
 
   return (
-    <div className="w-full min-h-screen flex items-center justify-center bg-gray-50 px-4 sm:px-6">
+    <div className="w-full min-h-screen flex items-center justify-center px-4 sm:px-6">
       <form
         onSubmit={handleReset}
-        className="w-full max-w-md bg-white rounded-md border shadow-md p-6 sm:p-8"
+        className="w-full max-w-md bg-white/30 backdrop-blur-md border-white/30 rounded-md border shadow-md p-6 sm:p-8"
       >
         <h2 className="text-2xl sm:text-3xl font-bold text-center text-sky-900 mb-6">
           Reset Password
@@ -49,7 +49,7 @@ const ResetPassword = () => {
           {message && <p className="text-green-600 mt-1">{message}</p>}
           {error && <p className="text-red-600 mt-1">{error}</p>}
 
-          <button className="btn mt-4 w-full py-2 transition">
+          <button className="btn border-none bg-sky-600 hover:bg-sky-700 text-white mt-4 w-full py-2 transition">
             Reset Password
           </button>
         </div>
