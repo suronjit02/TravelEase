@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router";
 import { AuthContext } from "../provider/AuthProvider";
 import { HiOutlineUserCircle } from "react-icons/hi2";
@@ -6,6 +6,17 @@ import { HiOutlineUserCircle } from "react-icons/hi2";
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
   const navigate = useNavigate();
+
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+
+  useEffect(() => {
+    document.querySelector("html").setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
+  const handleToggle = () => {
+    setTheme(theme === "light" ? "dark" : "light");
+  };
 
   const handleLogOut = () => {
     logOut()
@@ -137,7 +148,11 @@ const Navbar = () => {
         )}
 
         <label className="toggle text-base-content">
-          <input type="checkbox" value="dark" className="theme-controller" />
+          <input
+            type="checkbox"
+            onChange={handleToggle}
+            checked={theme === "dark"}
+          />
 
           <svg
             aria-label="sun"
