@@ -19,7 +19,7 @@ const BannerSection = () => {
 
         <Link
           to="/all-vehicles"
-          className="btn border-none px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold"
+          className="btn border-none bg-linear-to-r bg-sky-600 hover:bg-sky-700 mt-3 inline-block px-4 py-2 text-white"
         >
           Explore All Vehicles
         </Link>

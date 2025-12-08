@@ -54,8 +54,7 @@ const VehicleDetails = () => {
 
       <p className="mt-4 text-gray-500">{vehicle.description}</p>
 
-      <div className="mt-6 p-4 border rounded-lg bg-gray-50">
-        <h3 className="text-xl font-semibold">Details</h3>
+      <div className="mt-6 py-6 p-4 rounded-lg bg-white/30 backdrop-blur-md border border-white/30">
         <p>
           <span className="font-bold">Owner:</span> {vehicle.owner}
         </p>
@@ -66,7 +65,7 @@ const VehicleDetails = () => {
           <span className="font-bold">Availability:</span>{" "}
           {vehicle.availability}
         </p>
-        <p className="text-blue-600 font-bold mt-2">
+        <p className="text-sky-800 font-bold mt-2">
           Price Per Day: ${vehicle.pricePerDay}
         </p>
       </div>
@@ -75,7 +74,11 @@ const VehicleDetails = () => {
         onClick={handleBooking}
         disabled={isBooked}
         className={`btn px-5 py-2 rounded mt-5 text-white
-    ${isBooked ? "bg-gray-400 cursor-not-allowed" : "bg-blue-600"}
+    ${
+      isBooked
+        ? "bg-gray-400 cursor-not-allowed"
+        : "bg-sky-600 hover:bg-sky-700 border-none"
+    }
   `}
       >
         {isBooked ? "Booked" : "Book Now"}

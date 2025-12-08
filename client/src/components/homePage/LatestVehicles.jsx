@@ -14,7 +14,7 @@ const LatestVehicles = () => {
 
   return (
     <div className="max-w-6xl mx-auto mt-10">
-      <h2 className="text-3xl text-center text-sky-900 font-semibold mb-6">
+      <h2 className="text-3xl text-center font-semibold mb-6">
         Latest Vehicles
       </h2>
 
