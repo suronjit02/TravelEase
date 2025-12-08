@@ -69,6 +69,7 @@ const Login = () => {
                 type={showPass ? "text" : "password"}
                 name="password"
                 placeholder="Password here"
+                onChange={() => setError("")}
                 className="input input-bordered focus:outline-none w-full pr-10"
               />
               <span
