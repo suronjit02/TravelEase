@@ -7,13 +7,13 @@ const LatestVehicles = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/vehicles")
+      .get("http://localhost:3000/vehicles?latest=true")
       .then((res) => setVehicles(res.data))
       .catch((err) => console.log(err));
   }, []);
 
   return (
-    <div className="my-20 px-20">
+    <div className="max-w-6xl mx-auto mt-10">
       <h2 className="text-3xl text-center text-sky-900 font-semibold mb-6">
         Latest Vehicles
       </h2>

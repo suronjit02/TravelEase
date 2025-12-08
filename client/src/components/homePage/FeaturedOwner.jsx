@@ -1,11 +1,13 @@
 const FeaturedOwner = () => {
   return (
-    <div className="my-12 px-20 bg-gray-100 p-10">
-      <h2 className="text-3xl text-center font-semibold mb-6">Featured Owner</h2>
+    <div className="max-w-6xl mx-auto mt-15 rounded-md hover:shadow-md bg-gray-100 p-10">
+      <h2 className="text-3xl text-center font-semibold mb-6">
+        Featured Owner
+      </h2>
 
       <div className="flex flex-col md:flex-row justify-center items-center gap-6">
         <img
-          src="https://i.ibb.co/Lvx0jbg/owner.jpg"
+          src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?w=500"
           className="w-30 h-30 rounded-full object-cover"
         />
 

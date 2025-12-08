@@ -1,6 +1,6 @@
 const AboutSection = () => {
   return (
-    <div className="my-20 px-20 text-center">
+    <div className="max-w-6xl mx-auto my-20 text-center">
       <h2 className="text-3xl font-semibold mb-4">About TravelEase</h2>
 
       <p className="text-gray-600 max-w-3xl mx-auto">
