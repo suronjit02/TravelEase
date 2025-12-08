@@ -46,7 +46,7 @@ const AddVehicle = () => {
 
   return (
     <div className="px-4 py-8 max-w-3xl mx-auto">
-      <div className="bg-white/30 backdrop-blur-md border border-white/30 p-15 rounded-lg">
+      <div className="bg-white/30 backdrop-blur-md border border-white/30 p-5 sm:p-15 rounded-lg">
         <h2 className="text-3xl text-center font-bold mb-6">
           Add Your Vehicle
         </h2>

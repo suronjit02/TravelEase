@@ -22,12 +22,12 @@ const TopCategories = () => {
   }, []);
 
   return (
-    <div className="max-w-6xl mx-auto mt-15">
-      <h2 className="text-3xl font-semibold mb-6 text-center">
+    <div className="max-w-6xl mx-auto mt-16 sm:mt-12 xs:mt-8 px-4 sm:px-2">
+      <h2 className="text-3xl sm:text-2xl xs:text-xl font-semibold mb-6 text-center">
         Top Categories
       </h2>
 
-      <div className="grid md:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
         {categories.map((category, idx) => (
           <div
             key={idx}
@@ -36,9 +36,11 @@ const TopCategories = () => {
             <img
               src={category.vehicle?.coverImage}
               alt={category.name}
-              className="h-40 w-full object-cover group-hover:scale-105 transition"
+              className="h-40 sm:h-32 xs:h-28 w-full object-cover group-hover:scale-105 transition-transform duration-300"
             />
-            <div className="p-3 text-center font-semibold">{category.name}</div>
+            <div className="p-3 text-center font-semibold text-base sm:text-sm xs:text-xs">
+              {category.name}
+            </div>
           </div>
         ))}
       </div>

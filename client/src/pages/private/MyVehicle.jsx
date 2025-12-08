@@ -17,21 +17,15 @@ const MyVehicle = () => {
       .catch((err) => console.log(err));
   }, [user?.email]);
 
-  console.log(myVehicle);
-
   const handleDelete = (id) => {
     axios
       .delete(`http://localhost:3000/delete/${id}`)
       .then((res) => {
-        console.log(res.data);
         const filterData = myVehicle.filter((vehicle) => vehicle._id != id);
         toast.success("Vehicle removed from your list !");
-        // console.log(filterData);
         setMyVehicle(filterData);
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch((err) => console.log(err));
   };
 
   return (
@@ -39,7 +33,6 @@ const MyVehicle = () => {
       <div className="overflow-x-auto max-w-6xl mx-auto mt-5">
         <table className="table">
           <tbody>
-            {/* row 1 */}
             {myVehicle.map((vehicle) => (
               <tr key={vehicle._id}>
                 <td>
@@ -76,19 +69,19 @@ const MyVehicle = () => {
                 </td>
 
                 <td>
-                  <Link to={`/vehicle/${vehicle._id}`} className="btn  btn-xs">
+                  <Link to={`/vehicle/${vehicle._id}`} className="btn btn-xs">
                     View Details
                   </Link>
                 </td>
                 <td>
                   <Link to={`/update-vehicle/${vehicle?._id}`}>
-                    <button className="btn  btn-xs">Edit</button>
+                    <button className="btn btn-xs">Edit</button>
                   </Link>
                 </td>
                 <td>
                   <button
                     onClick={() => handleDelete(vehicle?._id)}
-                    className="btn  btn-xs"
+                    className="btn btn-xs"
                   >
                     Delete
                   </button>

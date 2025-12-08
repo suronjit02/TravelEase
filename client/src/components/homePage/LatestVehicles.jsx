@@ -13,12 +13,12 @@ const LatestVehicles = () => {
   }, []);
 
   return (
-    <div className="max-w-6xl mx-auto mt-10">
-      <h2 className="text-3xl text-center font-semibold mb-6">
+    <div className="max-w-6xl mx-auto mt-10 sm:mt-8 xs:mt-6 px-4 sm:px-2">
+      <h2 className="text-3xl sm:text-2xl xs:text-xl text-center font-semibold mb-6">
         Latest Vehicles
       </h2>
 
-      <div className="grid md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {vehicles.slice(0, 6).map((v) => (
           <VehicleCard key={v._id} vehicle={v} />
         ))}

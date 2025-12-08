@@ -15,9 +15,9 @@ const MyBooking = () => {
   }, [user.email]);
 
   return (
-    <div className="max-w-6xl mx-auto p-6">
+    <div className="max-w-6xl mx-auto p-4 sm:p-3 xs:p-2">
       {bookings.length === 0 && (
-        <div className="text-center text-gray-500 text-lg mt-20">
+        <div className="text-center text-gray-500 text-lg sm:text-base xs:text-sm mt-20">
           You have not booked any vehicles yet 🚗
         </div>
       )}
@@ -27,20 +27,24 @@ const MyBooking = () => {
           {bookings.map((item) => (
             <div
               key={item._id}
-              className="flex items-center justify-between shadow-sm rounded-lg p-1"
+              className="flex flex-col sm:flex-row items-start sm:items-center justify-between shadow-sm rounded-lg p-4 sm:p-3 xs:p-2 gap-3"
             >
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-3 sm:gap-4 w-full sm:w-auto">
                 <img
                   src={item.coverImage}
-                  className="max-h-20 max-w-25 object-cover rounded"
+                  className="h-20 w-24 sm:h-20 sm:w-24 xs:h-16 xs:w-20 object-cover rounded"
                 />
-                <span>
-                  <h2 className="font-bold ">{item.vehicleName}</h2>
-                  <h3 className="font-semibold text-sm">{item.category}</h3>
+                <span className="flex flex-col">
+                  <h2 className="font-bold text-base sm:text-sm xs:text-xs">
+                    {item.vehicleName}
+                  </h2>
+                  <h3 className="font-semibold text-sm sm:text-xs xs:text-xs">
+                    {item.category}
+                  </h3>
                 </span>
               </div>
 
-              <div className="text-center">
+              <div className=" text-sm sm:text-xs xs:text-xs">
                 <p>Booking Time</p>
                 {new Date(item.bookedAt).toLocaleString("en-BD", {
                   timeZone: "Asia/Dhaka",
@@ -53,10 +57,11 @@ const MyBooking = () => {
                 })}
               </div>
 
-              <p className="font-semibold text-sky-900">
+              <p className="font-semibold text-sky-900 text-sm sm:text-xs xs:text-xs">
                 Booking for ${item.pricePerDay}/day
               </p>
-              <p>{item.location}</p>
+
+              <p className="text-sm sm:text-xs xs:text-xs">{item.location}</p>
             </div>
           ))}
         </div>

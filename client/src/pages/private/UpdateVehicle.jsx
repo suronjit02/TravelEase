@@ -66,9 +66,11 @@ const UpdateVehicle = () => {
   };
 
   return (
-    <div className="">
-      <div className="max-w-3xl mx-auto bg-white/30 backdrop-blur-md border border-white/30 p-15 rounded-lg my-15">
-        <h3 className="text-center mb-8 text-2xl font-semibold">Update Your Vehicle Data</h3>
+    <div className="p-2 sm:p-0">
+      <div className="max-w-3xl mx-auto bg-white/30 backdrop-blur-md border border-white/30 p-5 sm:p-15 rounded-lg my-15">
+        <h3 className="text-center mb-8 text-2xl font-semibold">
+          Update Your Vehicle Data
+        </h3>
         <form onSubmit={handleUpdate} className="flex flex-col gap-4 w-full">
           <input
             required
