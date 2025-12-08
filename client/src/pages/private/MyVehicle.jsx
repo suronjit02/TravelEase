@@ -35,13 +35,13 @@ const MyVehicle = () => {
         <table className="table">
           <tbody>
             {myVehicle.map((vehicle) => {
-              const createdDate = new Date(vehicle.createdAt); // Date object
+              const createdDate = new Date(vehicle.createdAt);
               return (
                 <tr key={vehicle._id}>
                   <td>
                     <div className="flex items-center gap-3">
                       <div className="avatar">
-                        <div className="rounded-xl h-12 w-12">
+                        <div className="rounded-md h-12 w-15">
                           <img
                             src={vehicle.coverImage}
                             alt={vehicle?.vehicleName}
