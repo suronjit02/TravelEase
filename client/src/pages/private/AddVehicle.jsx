@@ -38,7 +38,7 @@ const AddVehicle = () => {
     console.log(formData);
 
     axios.post("http://localhost:3000/vehicles", formData).then((res) => {
-      // console.log(res);
+      console.log(res);
       toast.success("Vehicle Added Successfully!");
       form.reset();
     });
@@ -46,93 +46,97 @@ const AddVehicle = () => {
 
   return (
     <div className="px-4 py-8 max-w-3xl mx-auto">
-      <h2 className="text-3xl text-center font-bold mb-6">Add Vehicle</h2>
+      <div className="bg-white/30 backdrop-blur-md border border-white/30 p-15 rounded-lg">
+        <h2 className="text-3xl text-center font-bold mb-6">
+          Add Your Vehicle
+        </h2>
 
-      <form onSubmit={handleSubmit} className="flex flex-col gap-4 w-full">
-        <input
-          required
-          type="text"
-          name="vehicleName"
-          placeholder="Vehicle Name"
-          className="input input-bordered w-full"
-        />
+        <form onSubmit={handleSubmit} className="flex flex-col gap-4 w-full">
+          <input
+            required
+            type="text"
+            name="vehicleName"
+            placeholder="Vehicle Name"
+            className="input input-bordered w-full"
+          />
 
-        <input
-          required
-          type="text"
-          name="owner"
-          placeholder="Owner Name"
-          className="input input-bordered w-full"
-        />
+          <input
+            required
+            type="text"
+            name="owner"
+            placeholder="Owner Name"
+            className="input input-bordered w-full"
+          />
 
-        <select
-          required
-          name="category"
-          className="input input-bordered w-full"
-        >
-          <option value="">Select Category</option>
-          <option value="SUV">SUV</option>
-          <option value="Electric">Electric</option>
-          <option value="Sedan">Sedan</option>
-          <option value="Van">Van</option>
-        </select>
+          <select
+            required
+            name="category"
+            className="input input-bordered w-full"
+          >
+            <option value="">Select Category</option>
+            <option value="SUV">SUV</option>
+            <option value="Electric">Electric</option>
+            <option value="Sedan">Sedan</option>
+            <option value="Van">Van</option>
+          </select>
 
-        <input
-          required
-          type="number"
-          name="pricePerDay"
-          placeholder="Price Per Day"
-          className="input input-bordered w-full"
-        />
+          <input
+            required
+            type="number"
+            name="pricePerDay"
+            placeholder="Price Per Day"
+            className="input input-bordered w-full"
+          />
 
-        <input
-          required
-          type="text"
-          name="location"
-          placeholder="Location"
-          className="input input-bordered w-full"
-        />
+          <input
+            required
+            type="text"
+            name="location"
+            placeholder="Location"
+            className="input input-bordered w-full"
+          />
 
-        <select
-          required
-          name="availability"
-          className="input input-bordered w-full"
-        >
-          <option value="Available">Available</option>
-          <option value="Booked">Booked</option>
-        </select>
+          <select
+            required
+            name="availability"
+            className="input input-bordered w-full"
+          >
+            <option value="Available">Available</option>
+            <option value="Booked">Booked</option>
+          </select>
 
-        <textarea
-          required
-          name="description"
-          placeholder="Description"
-          className="input input-bordered h-24 w-full "
-          style={{ whiteSpace: "pre-wrap", wordWrap: "break-word" }}
-        />
+          <textarea
+            required
+            name="description"
+            placeholder="Description"
+            className="input input-bordered h-24 w-full "
+            style={{ whiteSpace: "pre-wrap", wordWrap: "break-word" }}
+          />
 
-        <input
-          required
-          type="text"
-          name="coverImage"
-          placeholder="Cover Image URL"
-          className="input input-bordered w-full"
-        />
-        <input
-          type="email"
-          name="userEmail"
-          placeholder="Email"
-          value={user.email}
-          readOnly
-          className="input input-bordered w-full"
-        />
+          <input
+            required
+            type="text"
+            name="coverImage"
+            placeholder="Cover Image URL"
+            className="input input-bordered w-full"
+          />
+          <input
+            type="email"
+            name="userEmail"
+            placeholder="Email"
+            value={user.email}
+            readOnly
+            className="input input-bordered w-full"
+          />
 
-        <button
-          type="submit"
-          className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
-        >
-          Add Vehicle
-        </button>
-      </form>
+          <button
+            type="submit"
+            className="btn border-none bg-sky-600 text-white hover:bg-sky-700"
+          >
+            Add Vehicle
+          </button>
+        </form>
+      </div>
     </div>
   );
 };
