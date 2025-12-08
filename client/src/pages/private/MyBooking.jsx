@@ -23,25 +23,46 @@ const MyBooking = () => {
       )}
 
       {bookings.length > 0 && (
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="flex flex-col gap-5">
           {bookings.map((item) => (
-            <div key={item._id} className="border rounded-lg p-4">
-              <img
-                src={item.coverImage}
-                className="h-40 w-full object-cover rounded"
-              />
-              <h2 className="font-bold mt-2">{item.vehicleName}</h2>
-              <p>{item.location}</p>
-              <p className="font-semibold text-blue-600">
-                ${item.pricePerDay}/day
+            <div
+              key={item._id}
+              className="flex items-center justify-between shadow-sm rounded-lg p-1"
+            >
+              <div className="flex items-center gap-4">
+                <img
+                  src={item.coverImage}
+                  className="max-h-20 max-w-25 object-cover rounded"
+                />
+                <span>
+                  <h2 className="font-bold ">{item.vehicleName}</h2>
+                  <h3 className="font-semibold text-sm">{item.category}</h3>
+                </span>
+              </div>
+
+              <div className="text-center">
+                <p>Booking Time</p>
+                {new Date(item.bookedAt).toLocaleString("en-BD", {
+                  timeZone: "Asia/Dhaka",
+                  day: "2-digit",
+                  month: "2-digit",
+                  year: "numeric",
+                  hour: "2-digit",
+                  minute: "2-digit",
+                  hour12: true,
+                })}
+              </div>
+
+              <p className="font-semibold text-sky-900">
+                Booking for ${item.pricePerDay}/day
               </p>
+              <p>{item.location}</p>
             </div>
           ))}
         </div>
       )}
     </div>
   );
-
 };
 
 export default MyBooking;

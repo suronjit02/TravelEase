@@ -20,6 +20,7 @@ const VehicleDetails = () => {
     const bookingData = {
       vehicleId: vehicle._id,
       vehicleName: vehicle.vehicleName,
+      category: vehicle.category,
       coverImage: vehicle.coverImage,
       pricePerDay: vehicle.pricePerDay,
       location: vehicle.location,
