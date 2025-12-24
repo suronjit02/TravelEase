@@ -11,9 +11,11 @@ const VehicleDetails = () => {
   const [isBooked, setIsBooked] = useState(false);
 
   useEffect(() => {
-    axios.get(`http://localhost:3000/vehicles/${id}`).then((res) => {
-      setVehicle(res.data);
-    });
+    axios
+      .get(`https://travel-ease-pied-six.vercel.app/vehicles/${id}`)
+      .then((res) => {
+        setVehicle(res.data);
+      });
   }, [id]);
 
   const handleBooking = async () => {
@@ -29,7 +31,10 @@ const VehicleDetails = () => {
     };
 
     try {
-      await axios.post("http://localhost:3000/bookings", bookingData);
+      await axios.post(
+        "https://travel-ease-pied-six.vercel.app/bookings",
+        bookingData
+      );
       toast.success("Booking Successful ✅");
       setIsBooked(true);
     } catch (err) {

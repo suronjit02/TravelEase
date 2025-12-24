@@ -9,7 +9,9 @@ const MyBooking = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/my-bookings?email=${user.email}`)
+      .get(
+        `https://travel-ease-pied-six.vercel.app/my-bookings?email=${user.email}`
+      )
       .then((res) => {
         setBookings(res.data);
       });

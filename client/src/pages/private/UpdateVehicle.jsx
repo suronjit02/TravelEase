@@ -14,10 +14,12 @@ const UpdateVehicle = () => {
   console.log(user);
 
   useEffect(() => {
-    axios.get(`http://localhost:3000/vehicles/${id}`).then((res) => {
-      setVehicle(res.data);
-      setCategory(res.data.category);
-    });
+    axios
+      .get(`https://travel-ease-pied-six.vercel.app/vehicles/${id}`)
+      .then((res) => {
+        setVehicle(res.data);
+        setCategory(res.data.category);
+      });
   }, [id]);
 
   console.log(vehicle);
@@ -52,7 +54,7 @@ const UpdateVehicle = () => {
     };
 
     axios
-      .put(`http://localhost:3000/update/${id}`, formData)
+      .put(`https://travel-ease-pied-six.vercel.app/update/${id}`, formData)
       .then((res) => {
         console.log(res.data);
         toast.success("Update your vehicle successfully!");

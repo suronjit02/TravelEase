@@ -11,7 +11,9 @@ const MyVehicle = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/my-vehicles?email=${user?.email}`)
+      .get(
+        `https://travel-ease-pied-six.vercel.app/my-vehicles?email=${user?.email}`
+      )
       .then((res) => {
         setMyVehicle(res.data);
       })
@@ -20,7 +22,7 @@ const MyVehicle = () => {
 
   const handleDelete = (id) => {
     axios
-      .delete(`http://localhost:3000/delete/${id}`)
+      .delete(`https://travel-ease-pied-six.vercel.app/delete/${id}`)
       .then((res) => {
         const filterData = myVehicle.filter((vehicle) => vehicle._id !== id);
         toast.success("Vehicle removed from your list!");

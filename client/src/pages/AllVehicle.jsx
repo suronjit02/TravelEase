@@ -21,7 +21,7 @@ const AllVehicles = () => {
       const queryString = query.length ? "?" + query.join("&") : "";
 
       const res = await axios.get(
-        `http://localhost:3000/vehicles${queryString}`
+        `https://travel-ease-pied-six.vercel.app/vehicles${queryString}`
       );
       setVehicles(res.data);
     } catch (err) {

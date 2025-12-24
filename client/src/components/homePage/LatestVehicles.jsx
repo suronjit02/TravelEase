@@ -7,7 +7,7 @@ const LatestVehicles = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/vehicles?latest=true")
+      .get("https://travel-ease-pied-six.vercel.app/vehicles?latest=true")
       .then((res) => setVehicles(res.data))
       .catch((err) => console.log(err));
   }, []);

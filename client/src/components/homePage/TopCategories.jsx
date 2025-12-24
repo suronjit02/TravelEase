@@ -9,7 +9,9 @@ const TopCategories = () => {
 
     Promise.all(
       categoryNames.map((category) =>
-        axios.get(`http://localhost:3000/vehicles?category=${category}`)
+        axios.get(
+          `https://travel-ease-pied-six.vercel.app/vehicles?category=${category}`
+        )
       )
     ).then((responses) => {
       const data = responses.map((res, i) => ({

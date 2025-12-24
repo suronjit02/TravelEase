@@ -37,11 +37,13 @@ const AddVehicle = () => {
 
     console.log(formData);
 
-    axios.post("http://localhost:3000/vehicles", formData).then((res) => {
-      console.log(res);
-      toast.success("Vehicle Added Successfully!");
-      form.reset();
-    });
+    axios
+      .post("https://travel-ease-pied-six.vercel.app/vehicles", formData)
+      .then((res) => {
+        console.log(res);
+        toast.success("Vehicle Added Successfully!");
+        form.reset();
+      });
   };
 
   return (
