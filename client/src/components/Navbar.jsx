@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router";
 import { AuthContext } from "../provider/AuthProvider";
 import { HiOutlineUserCircle } from "react-icons/hi2";
+import { IoCartOutline } from "react-icons/io5";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -95,7 +96,7 @@ const Navbar = () => {
           to={"/"}
           className="font-extrabold text-2xl text-sky-900 cursor-pointer hidden sm:inline-block"
         >
-          TravelEase
+          <img className="h-15" src="/TravelEasenoIntro.png" alt="travelease" />
         </Link>
       </div>
 
@@ -115,6 +116,11 @@ const Navbar = () => {
           </li>
           <li>
             <NavLink to={"/my-bookings"}>My Bookings</NavLink>
+          </li>
+          <li className="bg-sky-950 text-white text-center p-1 text-xl rounded-full ">
+            <NavLink to={"/my-cart"}>
+              <IoCartOutline className="scale-x-[-1]" />
+            </NavLink>
           </li>
         </ul>
       </div>
