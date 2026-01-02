@@ -94,9 +94,13 @@ const Navbar = () => {
 
         <Link
           to={"/"}
-          className="font-extrabold text-2xl text-sky-900 cursor-pointer hidden sm:inline-block"
+          className="font-extrabold text-2xl text-sky-900 cursor-pointer "
         >
-          <img className="h-15" src="/TravelEasenoIntro.png" alt="travelease" />
+          <img
+            className="h-10 sm:h-12"
+            src="/TravelEasenoIntro.png"
+            alt="travelease"
+          />
         </Link>
       </div>
 
@@ -111,17 +115,16 @@ const Navbar = () => {
           <li>
             <NavLink to={"/add-vehicle"}>Add Vehicle</NavLink>
           </li>
-          <li>
-            <NavLink to={"/my-vehicles"}>My Vehicles</NavLink>
-          </li>
-          <li>
-            <NavLink to={"/my-bookings"}>My Bookings</NavLink>
-          </li>
-          <li className="bg-sky-950 text-white text-center p-1 text-xl rounded-full ">
-            <NavLink to={"/my-cart"}>
-              <IoCartOutline className="scale-x-[-1]" />
-            </NavLink>
-          </li>
+          {user && (
+            <>
+              <li>
+                <NavLink to={"/my-vehicles"}>My Vehicles</NavLink>
+              </li>
+              <li>
+                <NavLink to={"/my-bookings"}>My Bookings</NavLink>
+              </li>
+            </>
+          )}
         </ul>
       </div>
       <div className="navbar-end gap-5 font-semibold">
@@ -175,13 +178,10 @@ const Navbar = () => {
             <Link to={"/register"} className="hidden sm:inline-block">
               Register
             </Link>
-
-            <h3 className="font-extrabold text-2xl text-sky-900 cursor-pointer inline-block sm:hidden">
-              TravelEase
-            </h3>
           </div>
         )}
 
+        {/* theme toggle */}
         <label className="toggle text-base-content">
           <input
             type="checkbox"
@@ -229,6 +229,12 @@ const Navbar = () => {
             </g>
           </svg>
         </label>
+
+        <li className="bg-sky-950 text-white text-center p-1 text-xl rounded-full ">
+          <NavLink to={"/my-cart"}>
+            <IoCartOutline className="scale-x-[-1]" />
+          </NavLink>
+        </li>
       </div>
     </div>
   );

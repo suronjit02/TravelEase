@@ -44,12 +44,8 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/vehicle/:id",
-        element: (
-          <PrivateRoute>
-            <ViewDetails></ViewDetails>
-          </PrivateRoute>
-        ),
+        path: "/vehicle-details/:id",
+        element: <ViewDetails></ViewDetails>,
       },
       {
         path: "/add-vehicle",
