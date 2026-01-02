@@ -3,7 +3,7 @@ import axios from "axios";
 import { useSearchParams } from "react-router-dom";
 import FilterBar from "../components/FilterBar";
 import VehicleCard from "../components/homePage/VehicleCard";
-import { motion } from "framer-motion";
+import LoadingSpiner from "../components/LoadingSpiner";
 
 const AllVehicles = () => {
   const [vehicles, setVehicles] = useState([]);
@@ -56,13 +56,7 @@ const AllVehicles = () => {
       <FilterBar onFilter={handleFilter} />
 
       {loading ? (
-        <div className="flex justify-center mt-10">
-          <motion.div
-            animate={{ rotate: 360 }}
-            transition={{ repeat: Infinity, duration: 1 }}
-            className="w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full"
-          />
-        </div>
+        <LoadingSpiner></LoadingSpiner>
       ) : vehicles.length === 0 ? (
         <div className="text-center mt-10 text-gray-600">No vehicles found</div>
       ) : (

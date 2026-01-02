@@ -230,7 +230,7 @@ const Navbar = () => {
           </svg>
         </label>
 
-        <li className="bg-sky-950 text-white text-center p-1 text-xl rounded-full ">
+        <li className="secondary text-white text-center p-1 text-xl rounded-full ">
           <NavLink to={"/my-cart"}>
             <IoCartOutline className="scale-x-[-1]" />
           </NavLink>
