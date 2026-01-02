@@ -7,7 +7,8 @@ import AboutSection from "../components/homePage/AboutSection";
 
 const Home = () => {
   return (
-    <div className="">
+    <div >
+      
       <BannerSection></BannerSection>
       <LatestVehicles></LatestVehicles>
       <TopCategories></TopCategories>

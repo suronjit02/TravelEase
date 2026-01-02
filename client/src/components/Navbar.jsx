@@ -28,7 +28,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar bg-base-100 shadow-sm px-2 sm:px-20 sticky top-0 z-99">
+    <div className="navbar bg-white/50 backdrop-blur-md shadow-sm px-2 sm:px-20 sticky top-0 z-99">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -230,11 +230,12 @@ const Navbar = () => {
           </svg>
         </label>
 
-        <li className="secondary text-white text-center p-1 text-xl rounded-full ">
-          <NavLink to={"/my-cart"}>
-            <IoCartOutline className="scale-x-[-1]" />
-          </NavLink>
-        </li>
+        <Link
+          to={"/my-cart"}
+          className="secondary text-white text-center p-1 text-xl rounded-full "
+        >
+          <IoCartOutline className="scale-x-[-1]" />
+        </Link>
       </div>
     </div>
   );
