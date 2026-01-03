@@ -2,31 +2,34 @@ import { Link } from "react-router";
 
 const VehicleCard = ({ vehicle }) => {
   return (
-    <div className="p-4 rounded-md shadow hover:shadow-md transition bg-white/30 backdrop-blur-md border border-white/30">
-      <img
+    <div
+      className="p-4 rounded-sm shadow hover:shadow-md h-60 bg-no-repeat bg-center flex flex-col justify-end"
+      style={{
+        backgroundImage: `url(${vehicle.coverImage})`,
+        backgroundSize: "cover",
+      }}
+    >
+      {/* <img
         src={vehicle.coverImage}
         className="h-40 w-full object-cover rounded-lg"
-      />
+      /> */}
 
       <div
-        className="flex justify-between items-start mt-2
+        className="flex justify-between items-start 
       "
       >
-        <div>
-          <h3 className="text-xl font-bold">{vehicle.vehicleName}</h3>
-          <p className="text-gray-700">{vehicle.category}</p>
-        </div>
-        <h4>{vehicle.location}</h4>
-      </div>
-
-      <div className="flex justify-between items-center">
-        <p className="font-semibold text-gray-800">
-          {vehicle.pricePerDay}$ /day
-        </p>
+        <h3
+          className="text-2xl font-bold text-white"
+          style={{
+            textShadow: "2px 2px 6px black",
+          }}
+        >
+          {vehicle.vehicleName}
+        </h3>
 
         <Link
           to={`/vehicle-details/${vehicle._id}`}
-          className="btn border-none bg-linear-to-r bg-sky-600 hover:bg-sky-700 mt-3 inline-block px-4 py-2 text-white "
+          className="btn  btn-xs secondary shadow-none border-0 text-white"
         >
           View Details
         </Link>
