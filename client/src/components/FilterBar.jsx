@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { IoFilter } from "react-icons/io5";
 
 const FilterBar = ({ onFilter }) => {
   const [category, setCategory] = useState("");
@@ -43,9 +44,9 @@ const FilterBar = ({ onFilter }) => {
 
       <button
         onClick={handleFilter}
-        className="btn btn-wide mt-2 md:mt-0 bg-blue-500 hover:bg-blue-600 text-white"
+        className="btn btn-wide mt-2 md:mt-0 bg-[#0084d1] hover:bg-[#006dab] text-white"
       >
-        Apply
+        <IoFilter /> Filter
       </button>
     </div>
   );
