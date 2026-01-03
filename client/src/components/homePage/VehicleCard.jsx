@@ -3,7 +3,7 @@ import { Link } from "react-router";
 const VehicleCard = ({ vehicle }) => {
   return (
     <div
-      className="p-4 rounded-sm shadow hover:shadow-md h-60 bg-no-repeat bg-center flex flex-col justify-end"
+      className="p-4 rounded-sm shadow hover:shadow-md h-60 bg-no-repeat bg-center flex flex-col justify-between"
       style={{
         backgroundImage: `url(${vehicle.coverImage})`,
         backgroundSize: "cover",
@@ -13,6 +13,9 @@ const VehicleCard = ({ vehicle }) => {
         src={vehicle.coverImage}
         className="h-40 w-full object-cover rounded-lg"
       /> */}
+      <p className="badge rounded-xs bg-white/50 border-none">
+        {vehicle.category}
+      </p>
 
       <div
         className="flex justify-between items-start 
