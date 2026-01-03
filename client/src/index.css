@@ -9,22 +9,25 @@
   font-family: "Poppins", sans-serif;
 }
 
+/* bg color */
 .primary {
   background-color: #0084d1;
 }
 .secondary {
   background-color: #024a70;
 }
-
+/* text color */
 .text-secondary {
   color: rgb(82, 96, 109);
 }
 
+/* ankor tag */
 a.active {
   font-weight: 500;
   color: rgb(13, 110, 156);
+  text-decoration: underline;
 }
-a:hover {
+nav a:hover {
   font-weight: 500;
 }
 
