@@ -115,6 +115,9 @@ const Navbar = () => {
           <li>
             <NavLink to={"/add-vehicle"}>Add Vehicle</NavLink>
           </li>
+          <li>
+            <NavLink to={"/about"}>About</NavLink>
+          </li>
           {user && (
             <>
               <li>

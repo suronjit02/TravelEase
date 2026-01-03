@@ -2,16 +2,23 @@ import { useEffect, useState } from "react";
 import VehicleCard from "./VehicleCard";
 import axios from "axios";
 import { Link } from "react-router";
+import LoadingSpiner from "../LoadingSpiner";
 
 const LatestVehicles = () => {
   const [vehicles, setVehicles] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     axios
       .get("https://travel-ease-pied-six.vercel.app/vehicles?latest=true")
       .then((res) => setVehicles(res.data))
-      .catch((err) => console.log(err));
+      .catch((err) => console.log(err))
+      .finally(() => setLoading(false));
   }, []);
+
+  if (loading) {
+    return <LoadingSpiner></LoadingSpiner>;
+  }
 
   return (
     <div className="max-w-6xl mx-auto mt-10 xs:mt-6 sm:mt-15 px-4 sm:px-2">

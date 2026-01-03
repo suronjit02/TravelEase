@@ -12,6 +12,7 @@ import Login from "../pages/Login";
 import ErrorPage from "../pages/ErrorPage";
 import PrivateRoute from "../provider/PrivateRoute";
 import ResetPassword from "../pages/ResetPassword";
+import About from "../pages/About";
 
 const router = createBrowserRouter([
   {
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
             <MyBooking></MyBooking>
           </PrivateRoute>
         ),
+      },
+      {
+        path: "/about",
+        element: <About></About>,
       },
       {
         path: "/vehicle-details/:id",

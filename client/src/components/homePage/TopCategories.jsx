@@ -25,15 +25,18 @@ const TopCategories = () => {
 
   return (
     <div className="max-w-6xl mx-auto mt-16 sm:mt-12 xs:mt-8 px-4 sm:px-2">
-      <h2 className="text-3xl sm:text-2xl xs:text-xl font-semibold mb-6 text-center">
+      <h2 className="text-3xl sm:text-2xl xs:text-xl font-semibold text-center">
         Top Categories
       </h2>
+      <p className="text-center mb-6 text-secondary max-w-[500px] mx-auto">
+        Find the perfect ride by browsing our most loved vehicle categories.
+      </p>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
         {categories.map((category, idx) => (
           <div
             key={idx}
-            className="rounded-xl overflow-hidden shadow group cursor-pointer"
+            className="rounded-sm overflow-hidden shadow group cursor-pointer"
           >
             <img
               src={category.vehicle?.coverImage}
