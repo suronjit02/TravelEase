@@ -4,6 +4,11 @@
   themes: light --prefersdark, dark --default;
 }
 
+/* poppins font */
+.poppins {
+  font-family: "Poppins", sans-serif;
+}
+
 .primary {
   background-color: #0084d1;
 }
@@ -31,7 +36,6 @@ body {
     rgba(213, 47, 130, 0.15)
   );
 }
-
 
 /* loader style */
 .loader {

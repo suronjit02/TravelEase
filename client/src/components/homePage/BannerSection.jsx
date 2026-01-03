@@ -7,12 +7,12 @@ const BannerSection = () => {
       className="relative h-[90vh] bg-cover bg-center"
       style={{ backgroundImage: "url('/vehicle.png')" }}
     >
-      <div className="bg-black/25 w-full h-full flex flex-col justify-evenly items-center text-center text-white p-4">
-        <div>
-          <h1 className="text-4xl font-bold mb-4">
+      <div className="bg-black/50 w-full h-full flex flex-col justify-evenly items-center text-center text-white p-4">
+        <div className="flex flex-col justify-center items-center">
+          <h1 className="text-5xl font-bold  mb-4">
             TravelEase – Book Your Journey
           </h1>
-          <p className="max-w-xl mb-6 text-lg">
+          <p className="max-w-xl mb-6 text-lg text-gray-300">
             Choose your perfect vehicle and plan your trip with ease.
           </p>
         </div>
