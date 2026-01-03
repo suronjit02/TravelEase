@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router";
 
 const AboutSection = () => {
   return (
@@ -11,7 +12,10 @@ const AboutSection = () => {
         TravelEase is a trusted platform for renting vehicles with ease. Whether
         you’re planning a family trip, business travel, or local transport — we
         connect you with verified vehicle owners to ensure a safe and smooth
-        journey.
+        journey.{" "}
+        <Link to={"/about"} className="text-sky-900 underline">
+          view details
+        </Link>
       </p>
     </div>
   );

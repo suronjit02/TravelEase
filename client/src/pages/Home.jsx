@@ -4,6 +4,7 @@ import LatestVehicles from "../components/homePage/LatestVehicles";
 import TopCategories from "../components/homePage/TopCategories";
 import FeaturedOwner from "../components/homePage/FeaturedOwner";
 import AboutSection from "../components/homePage/AboutSection";
+import WhyChooseUs from "../components/homePage/WhyChooseUs";
 
 const Home = () => {
   return (
@@ -13,6 +14,7 @@ const Home = () => {
       <LatestVehicles></LatestVehicles>
       <TopCategories></TopCategories>
       <FeaturedOwner></FeaturedOwner>
+      <WhyChooseUs></WhyChooseUs>
       <AboutSection></AboutSection>
     </div>
   );
