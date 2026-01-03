@@ -98,7 +98,7 @@ const Navbar = () => {
         >
           <img
             className="h-10 sm:h-12"
-            src="/TravelEasenoIntro.png"
+            src="/traveleaselogo.png"
             alt="travelease"
           />
         </Link>
@@ -130,10 +130,7 @@ const Navbar = () => {
       <div className="navbar-end gap-5 font-semibold">
         {user ? (
           <>
-            <div
-              className="tooltip tooltip-bottom"
-              data-tip={user?.displayName}
-            >
+            <div className="tooltip tooltip-bottom">
               <div>
                 <div className="dropdown dropdown-end">
                   <div tabIndex={0} role="button" className="m-1">
