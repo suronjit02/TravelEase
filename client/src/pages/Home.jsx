@@ -5,17 +5,18 @@ import TopCategories from "../components/homePage/TopCategories";
 import FeaturedOwner from "../components/homePage/FeaturedOwner";
 import AboutSection from "../components/homePage/AboutSection";
 import WhyChooseUs from "../components/homePage/WhyChooseUs";
+import FaqSection from "../components/homePage/FaqSection";
 
 const Home = () => {
   return (
-    <div >
-      
+    <div>
       <BannerSection></BannerSection>
       <LatestVehicles></LatestVehicles>
       <TopCategories></TopCategories>
       <FeaturedOwner></FeaturedOwner>
       <WhyChooseUs></WhyChooseUs>
       <AboutSection></AboutSection>
+      <FaqSection></FaqSection>
     </div>
   );
 };
