@@ -1,30 +1,12 @@
-import React, { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../../provider/AuthProvider";
-import { useNavigate, useParams } from "react-router";
+import { useContext } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { AuthContext } from "../../../provider/AuthProvider";
 
-const UpdateVehicle = () => {
+const AddVehicle = () => {
   const { user } = useContext(AuthContext);
-  const { id } = useParams();
-  const [vehicle, setVehicle] = useState();
-  const [category, setCategory] = useState(vehicle?.category);
-  const [availability, setAvailability] = useState(vehicle?.availability);
-  const navigate = useNavigate();
-  console.log(user);
 
-  useEffect(() => {
-    axios
-      .get(`https://travel-ease-pied-six.vercel.app/vehicles/${id}`)
-      .then((res) => {
-        setVehicle(res.data);
-        setCategory(res.data.category);
-      });
-  }, [id]);
-
-  console.log(vehicle);
-
-  const handleUpdate = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     const form = e.target;
@@ -37,7 +19,7 @@ const UpdateVehicle = () => {
     const availability = form.availability.value;
     const description = form.description.value;
     const coverImage = form.coverImage.value;
-
+    const userEmail = form.userEmail.value;
     const createdAt = new Date().toISOString();
 
     const formData = {
@@ -49,34 +31,31 @@ const UpdateVehicle = () => {
       availability,
       description,
       coverImage,
-
+      userEmail,
       createdAt,
     };
 
-    axios
-      .put(`https://travel-ease-pied-six.vercel.app/update/${id}`, formData)
-      .then((res) => {
-        console.log(res.data);
-        toast.success("Update your vehicle successfully!");
-        navigate("/my-vehicles");
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-
     console.log(formData);
+
+    axios
+      .post("https://travel-ease-pied-six.vercel.app/vehicles", formData)
+      .then((res) => {
+        console.log(res);
+        toast.success("Vehicle Added Successfully!");
+        form.reset();
+      });
   };
 
   return (
-    <div className="p-2 sm:p-0">
-      <div className="max-w-3xl mx-auto bg-white/30 backdrop-blur-md border border-white/30 p-5 sm:p-15 rounded-lg my-15">
-        <h3 className="text-center mb-8 text-2xl font-semibold">
-          Update Your Vehicle Data
-        </h3>
-        <form onSubmit={handleUpdate} className="flex flex-col gap-4 w-full">
+    <div className="px-4 py-8 max-w-3xl mx-auto">
+      <div className="bg-white/30 backdrop-blur-md border border-white/30 p-5 sm:p-15 rounded-lg">
+        <h2 className="text-3xl text-center font-bold mb-6">
+          Add Your Vehicle
+        </h2>
+
+        <form onSubmit={handleSubmit} className="flex flex-col gap-4 w-full">
           <input
             required
-            defaultValue={vehicle?.vehicleName}
             type="text"
             name="vehicleName"
             placeholder="Vehicle Name"
@@ -85,7 +64,6 @@ const UpdateVehicle = () => {
 
           <input
             required
-            defaultValue={vehicle?.owner}
             type="text"
             name="owner"
             placeholder="Owner Name"
@@ -96,8 +74,6 @@ const UpdateVehicle = () => {
             required
             name="category"
             className="input input-bordered w-full"
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
           >
             <option value="">Select Category</option>
             <option value="SUV">SUV</option>
@@ -108,7 +84,6 @@ const UpdateVehicle = () => {
 
           <input
             required
-            defaultValue={vehicle?.pricePerDay}
             type="number"
             name="pricePerDay"
             placeholder="Price Per Day"
@@ -117,7 +92,6 @@ const UpdateVehicle = () => {
 
           <input
             required
-            defaultValue={vehicle?.location}
             type="text"
             name="location"
             placeholder="Location"
@@ -128,8 +102,6 @@ const UpdateVehicle = () => {
             required
             name="availability"
             className="input input-bordered w-full"
-            value={availability}
-            onChange={(e) => setAvailability(e.target.value)}
           >
             <option value="Available">Available</option>
             <option value="Booked">Booked</option>
@@ -137,26 +109,33 @@ const UpdateVehicle = () => {
 
           <textarea
             required
-            defaultValue={vehicle?.description}
             name="description"
             placeholder="Description"
-            className="input input-bordered h-24 w-full"
+            className="input input-bordered h-24 w-full "
+            style={{ whiteSpace: "pre-wrap", wordWrap: "break-word" }}
           />
 
           <input
             required
-            defaultValue={vehicle?.coverImage}
             type="text"
             name="coverImage"
             placeholder="Cover Image URL"
             className="input input-bordered w-full"
           />
+          <input
+            type="email"
+            name="userEmail"
+            placeholder="Email"
+            value={user.email}
+            readOnly
+            className="input input-bordered w-full"
+          />
 
           <button
             type="submit"
-            className="px-6 py-3 bg-sky-600 text-white rounded-lg hover:bg-sky-700"
+            className="btn border-none bg-sky-600 text-white hover:bg-sky-700"
           >
-            Update
+            Add Vehicle
           </button>
         </form>
       </div>
@@ -164,4 +143,4 @@ const UpdateVehicle = () => {
   );
 };
 
-export default UpdateVehicle;
+export default AddVehicle;

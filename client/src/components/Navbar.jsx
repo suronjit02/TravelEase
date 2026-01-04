@@ -3,6 +3,7 @@ import { Link, NavLink, useNavigate } from "react-router";
 import { AuthContext } from "../provider/AuthProvider";
 import { HiOutlineUserCircle } from "react-icons/hi2";
 import { IoCartOutline } from "react-icons/io5";
+import { HiOutlineBars3 } from "react-icons/hi2";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -110,24 +111,18 @@ const Navbar = () => {
             <NavLink to={"/"}>Home</NavLink>
           </li>
           <li>
-            <NavLink to={"/all-vehicles"}>All Vehicles</NavLink>
+            <NavLink to={"/dashboard"}>Dashboard</NavLink>
           </li>
           <li>
-            <NavLink to={"/add-vehicle"}>Add Vehicle</NavLink>
+            <NavLink to={"/all-vehicles"}>All Vehicles</NavLink>
           </li>
+
           <li>
             <NavLink to={"/about"}>About</NavLink>
           </li>
-          {user && (
-            <>
-              <li>
-                <NavLink to={"/my-vehicles"}>My Vehicles</NavLink>
-              </li>
-              <li>
-                <NavLink to={"/my-bookings"}>My Bookings</NavLink>
-              </li>
-            </>
-          )}
+          <li>
+            <NavLink to={"/faq"}>FAQ</NavLink>
+          </li>
         </ul>
       </div>
       <div className="navbar-end gap-5 font-semibold">

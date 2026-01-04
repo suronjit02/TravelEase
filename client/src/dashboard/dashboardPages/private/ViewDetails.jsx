@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router";
-import { AuthContext } from "../../provider/AuthProvider";
+import { AuthContext } from "../../../provider/AuthProvider";
 import toast from "react-hot-toast";
 
 const VehicleDetails = () => {

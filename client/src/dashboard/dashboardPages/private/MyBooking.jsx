@@ -1,10 +1,10 @@
 import { useContext, useEffect, useState } from "react";
 import axios from "axios";
-import { AuthContext } from "../../provider/AuthProvider";
 import { format } from "date-fns";
 import { FaCar } from "react-icons/fa";
 import { Link } from "react-router";
-import LoadingSpiner from "../../components/LoadingSpiner";
+import { AuthContext } from "../../../provider/AuthProvider";
+import LoadingSpiner from "../../../components/LoadingSpiner";
 
 const MyBooking = () => {
   const { user, loading } = useContext(AuthContext);
