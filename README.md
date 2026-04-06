@@ -7,7 +7,9 @@ A full-stack MERN web application that allows users to explore, list, manage, an
 ## 🚀 Live Demo
 
 🔗 Live Site: https://imaginative-crumble-db0eb5.netlify.app/
+
 🔗 Client Repository: https://github.com/suronjit02/TravelEase/tree/main/client
+
 🔗 Server Repository: https://github.com/suronjit02/TravelEase/tree/main/server
 
 ---
